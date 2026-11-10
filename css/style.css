@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+form {
+    width: 100%;
+    max-width: 600px;
+    height: 600px;
+    margin: 100px auto;
+
+    border: 2px solid blue;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+form input {
+    width: 200px;
+    height: 30px;
+
+    border: none;
+    border-bottom: 2px solid blue;
+    outline: none;
+    padding-bottom: 5px;
+
+    font-size: 22px;
+    font-family: sans-serif;
+    color: blue;
+    font-weight: 400;
+}
+form h1{
+    color: blue;
+    font-size: 30px;
+    font-family: sans-serif;
+    color: blue;
+    font-weight: 400;
+
+}
+
+.true {
+    color: green;
+}
+.false {
+    color: red;
+}
+.untyped {
+    color: gray;
+}

@@ -1,0 +1,43 @@
+10.29.2026
+
+1. I started working on the project but dropped it. It was too
+hard for me I guess.
+
+10.31.2026 - EasyType Version 0.1
+
+1. I couldn't get the thought of making a copy of the popular site `monkeytype.com`. I HAD to do something.
+2. I asked AI for help. For help, NOT codes.
+3. I asked it what I was doing wrong. It pointed out some ideas, and mixed with my own ideas and plans I prepped throughout the day, it actually worked for the first time, though my happiness didn't last long.
+4. A problem rose when I tried to press space to go to the next word. Basically, long story short, I then created these to make this thing work like intented:
+1) words => the list of words you need to write
+2) written_words => the list of words you've already written
+3) current_word => current word that needs to be written
+4) current_written_word => current word that you've written so far.
+
+5) word_counter => which word in the `words` list you're on
+6) local_word_index => the index of the `current_written_word`; used to check whether the last input was correct or INcorrect
+5. Anyways, I'm gonna sleep now, after I upload this to github.
+6. I think I could easily add these things:
+
+1) Handling backspace
+2) Handling space (better)
+
+7. These are the thing I need to add (not the complete list):
+
+1) Handling incorrect letters
+2) Handling double spaces (clicking space twice in a row)
+3) Handling incorrect word completions
+4) UI / UX
+5) Settings, such as : theme, font size, etc.
+
+11.1.2026 - EasyType Version 0.2
+
+1. Added backspace handling
+2. Improvements to the UI :
+Everything was running and showing in the console only, so I moved it to the actualy website. It looks clean now.
+
+11.10.2026 - EasyType Version 0.21
+
+1. Yo, hello everyone. I just deleted my old js file and created a new one. Yes, you heard that right. I'm starting from scratch, baby.
+2. It's going pretty good. You can check out the "script.js" file to see the changes. There are currently two functions. One can check the correctness of two words, and the other can render the array that the first function returned and turn that into an HTML element. Pretty neat, right? I know. 
+3. What do I want to do now? I think I'm gonna implement multiple words. I'm also gonna be trying to make anything I'm adding as bug-free and clean as possible. It's 11:30 pm already. See you all! 
