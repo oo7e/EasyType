@@ -41,3 +41,9 @@ Everything was running and showing in the console only, so I moved it to the act
 1. Yo, hello everyone. I just deleted my old js file and created a new one. Yes, you heard that right. I'm starting from scratch, baby.
 2. It's going pretty good. You can check out the "script.js" file to see the changes. There are currently two functions. One can check the correctness of two words, and the other can render the array that the first function returned and turn that into an HTML element. Pretty neat, right? I know. 
 3. What do I want to do now? I think I'm gonna implement multiple words. I'm also gonna be trying to make anything I'm adding as bug-free and clean as possible. It's 11:30 pm already. See you all! 
+
+11. 19. 2026 - EasyType Version 0.3
+
+1. Hi, everyone. Today was great. I got a lot of the project done in a few days, but I just forgot to push it, so here we go.
+2. I wanted to add multiple word system. So, I got an AI to create me a 100 word array of random, easy english words and put it in a json file. I messed around with fetch and async await for a day or two, but I just couldn't get the hang of how to get the data outside the fetch function. So, I just decided to make it into a normal variable called "wordPool". It worked out great. I removed all that fetch and async stuff. The code looks cleaner than ever.
+3. Now, my next goal is either seeing both the history of the words you've written, or see the words coming in after the current one. Or, I could do like a reaction speed type of game. Or, I could do the main screen first. Anyways, It's 10:43 PM. Gotta sleep IG, after I push this.  
