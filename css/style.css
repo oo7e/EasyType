@@ -5,49 +5,78 @@
     box-sizing: border-box;
 }
 
-form {
+body {
     width: 100%;
-    max-width: 600px;
-    height: 600px;
-    margin: 100px auto;
+    min-height: 100vh;
+    background-color: #1f1f1f;
 
-    border: 2px solid blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+    height: 100%;
+    min-height: 500px;
+    max-height: 600px;
+
+    border: 2px solid orange;
+    border-radius: 20px;
+
+    padding: 30px;
+    color: gray;
+
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: monospace;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-}
-form input {
-    width: 200px;
-    height: 30px;
-
-    border: none;
-    border-bottom: 2px solid blue;
-    outline: none;
-    padding-bottom: 5px;
-
-    font-size: 22px;
-    font-family: sans-serif;
-    color: blue;
-    font-weight: 400;
-}
-form h1{
-    color: blue;
-    font-size: 30px;
-    font-family: sans-serif;
-    color: blue;
-    font-weight: 400;
-
+    justify-content: space-between;
 }
 
-.true {
-    color: green;
+#paragraphDisplay {
+    width: 100%;
+    height: 12rem;
+    margin-bottom: 2.5rem; /* 2.5 * 16px = 40px */
+    /* margin-left: calc(30px + 2px);
+    margin-right: calc(30px + 2px); */
+    padding: 30px;
+
+    border: 2px solid orange;
+    border-radius: 10px;
 }
-.false {
-    color: red;
-}
-.untyped {
+
+#paragraphInput {
+    display: block;
+    width: 100%;
+    height: 12rem;
+
+    background-color: #1e1e1e;
     color: gray;
+    outline: none;
+    border: 2px solid rgba(255, 166, 0, .5);
+    border-radius: 10px;
+
+    font-size: 1.5rem;
+    resize: none;
+
+    padding: 30px;
+    transition: border-color 0.2s;
+}
+
+#paragraphInput:focus {
+    border-color: orange;
+}
+
+/*  WORD STYLING  */
+
+.correct {
+    color: white;
+}
+.incorrect {
+    color: red;
+    border-bottom: 1px solid red;
 }

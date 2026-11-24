@@ -1,9 +1,6 @@
-// Counters
-let currentWordIndex = 0
-
 // Data
 let wordPool = [
-    "the", "be", "to", "of", "and", "a", "in", "that", "have", "I",
+    "the", "be", "to", "of", "and", "a", "in", "that", "have",
     "it", "for", "not", "on", "with", "he", "as", "you", "do", "at",
     "this", "but", "his", "by", "from", "they", "we", "say", "her", "she",
     "or", "an", "will", "my", "one", "all", "would", "there", "their", "what",
@@ -15,14 +12,39 @@ let wordPool = [
     "even", "new", "want", "because", "any", "these", "give", "day", "most", "us"
 ]
 
-// Variables
-let targetWord = pickRandomWord(wordPool)
-let userInput = ""
-
 // DOM Elements
-let input = document.querySelector("#input")
-let currentWord = document.querySelector("#currentWord")
+let paragraphDisplayElement = document.getElementById("paragraphDisplay")
+let paragraphInputElement = document.getElementById("paragraphInput")
 
+// Event Listener
+paragraphInputElement.addEventListener("input", () => {
+    let arrayParagraph = paragraphDisplayElement.querySelectorAll("span")
+    let arrayValue = paragraphInputElement.value.split("")
+    let correct = true
+
+    arrayParagraph.forEach( (letterSpan, index) => {
+        let letter = arrayValue[index]
+        if (letter == null) {
+            letterSpan.classList.remove("class", "correct")
+            letterSpan.classList.remove("class", "incorrect")
+            correct = false
+        }
+        else if (letter === letterSpan.innerText) {
+            letterSpan.classList.add("class", "correct")
+            letterSpan.classList.remove("class", "incorrect")
+        }
+        else {
+            letterSpan.classList.add("class", "incorrect")
+            letterSpan.classList.remove("class", "correct")
+            correct = false
+        }
+
+
+    } )
+
+    if (correct) renderNewParagraph()
+
+})
 
 // Functions
 function pickRandomWord(arr) {
@@ -31,77 +53,27 @@ function pickRandomWord(arr) {
     return randomWord
 }
 
-function checkCorrectness(targetWord, userInput) {
-    let arr = []
-    if (userInput.length > targetWord.length) {
-
-        userInput.split("").forEach((letter, index) => {
-            if (letter === targetWord[index]) {
-                arr = [...arr, { letter: letter, correct: true }]
-            }
-
-            else {
-                arr = [...arr, { letter: targetWord[index] || letter, correct: false }]
-            }
-        })
-    }
-
-    else {
-        targetWord.split("").forEach((letter, index) => {
-
-            if (letter === userInput[index]) {
-                arr = [...arr, { letter: letter, correct: true }]
-            }
-
-            else if (!userInput[index]) {
-                arr = [...arr, { letter: letter, correct: "untyped" }]
-            }
-
-            else {
-                arr = [...arr, { letter: letter, correct: false }]
-            }
-        })
-    }
-
-
-
-    return arr
-
-
-}
-
-function renderUI(array, uiParent) {
-    uiParent.innerHTML = ``
-    array.forEach(element => {
-        let HTMLElement = document.createElement("span")
-        HTMLElement.innerText = `${element.letter}`
-        HTMLElement.setAttribute("class", String(element.correct))
-
-
-
-        uiParent.append(HTMLElement)
-
-
-
-    })
-
-}
-renderUI(checkCorrectness(targetWord, userInput), currentWord)
-
-input.addEventListener("input", e => {
-    if (e.data == " ") {
-        let wordIsCorrect = checkCorrectness(targetWord, userInput).every(element => element.correct === true)
-
-        // console.log(wordIsCorrect);
-
-        if (wordIsCorrect) {
-            currentWordIndex++
-            targetWord = pickRandomWord(wordPool)
-            e.target.value = ""
+function getRandomParagraph(wordCount) {
+    let data = ""
+    for (let i = 0; i <= wordCount; i++) {
+        if (!data) {
+            data += pickRandomWord(wordPool)
         }
-
-
+        else {
+            data += " " + pickRandomWord(wordPool)
+        }
     }
-    userInput = e.target.value
-    renderUI(checkCorrectness(targetWord, userInput), currentWord)
-})
+    return data
+}
+
+function renderNewParagraph() {
+    let quote = getRandomParagraph(30)
+    paragraphDisplayElement.innerHTML = ``
+    quote.split("").forEach( letter => {
+        let letterSpan = document.createElement("span")
+        letterSpan.innerText = letter
+        paragraphDisplayElement.appendChild(letterSpan)
+    } )
+    paragraphInputElement.value = ``
+
+} renderNewParagraph()
