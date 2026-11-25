@@ -13,14 +13,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    padding: 30px;
 }
 
 .container {
     width: 100%;
     max-width: 700px;
     height: 100%;
-    min-height: 500px;
-    max-height: 600px;
+    min-height: 30rem;
 
     border: 2px solid orange;
     border-radius: 20px;
@@ -39,20 +40,18 @@ body {
 
 #paragraphDisplay {
     width: 100%;
-    height: 12rem;
-    margin-bottom: 2.5rem; /* 2.5 * 16px = 40px */
-    /* margin-left: calc(30px + 2px);
-    margin-right: calc(30px + 2px); */
+    height: auto;
+
+    margin-bottom: 2.5rem;
     padding: 30px;
 
-    border: 2px solid orange;
     border-radius: 10px;
 }
 
 #paragraphInput {
     display: block;
     width: 100%;
-    height: 12rem;
+    height: auto;
 
     background-color: #1e1e1e;
     color: gray;
@@ -76,7 +75,24 @@ body {
 .correct {
     color: white;
 }
+
 .incorrect {
     color: red;
     border-bottom: 1px solid red;
+}
+
+/*  RESPONSIVE DESIGN  */
+
+
+
+@media (max-width:768px) {
+    html  {
+        font-size: 14px;
+    }
+}
+
+@media (max-width:524px) {
+    html {
+        font-size: 12px;
+    }
 }
