@@ -56,3 +56,6 @@ Everything was running and showing in the console only, so I moved it to the act
 3) Reset button
 2. There are still some things I'd love to add right now.
 1) Auto-scroll (so I can get rid of a known bug)
+2) Timer record system
+3) Highscore system
+4) WPM system
