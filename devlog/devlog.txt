@@ -59,3 +59,17 @@ Everything was running and showing in the console only, so I moved it to the act
 2) Timer record system
 3) Highscore system
 4) WPM system
+
+11. 26. 26 - EasyType Version 0.41
+1. Hi, again. I've implemented the Auto-scroll feature, but it's late by one letter, so it's not that good, as of right now, but I'll promise to make it better in the future.
+2. updated feature wait-list:
+
+1) Auto-scroll (V2)
+2) Timer record system
+3) Highscore system
+4) WPM system
+
+3. Also, some bug fixes
+4. How I want to fix the auto-scroll:
+I want to use the currentSpan element to get the offsetTop of the next span element, and compare them. That way, my auto-scroll will be one step ahead and work perfectly.
+5. Also, there seems to be some bugs with the auto-scroll, but now, you'll just have to live with it :)

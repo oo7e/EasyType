@@ -16,6 +16,10 @@ let wordPool = [
 let seconds = 0
 let timer = null
 
+// Auto-Scroll Variables
+let currentSpan = null
+let previousSpan = null
+
 // DOM Elements
 let paragraphDisplayElement = document.getElementById("paragraphDisplay")
 let paragraphInputElement = document.getElementById("paragraphInput")
@@ -31,7 +35,10 @@ paragraphInputElement.addEventListener("input", () => {
     let arrayValue = paragraphInputElement.value.split("")
     let correct = true
 
-    arrayParagraph.forEach( (letterSpan, index) => {
+    currentSpan = arrayParagraph[arrayValue.length - 1]
+    previousSpan = arrayParagraph[arrayValue.length - 2] || null
+
+    arrayParagraph.forEach((letterSpan, index) => {
         let letter = arrayValue[index]
         if (letter == null) {
             letterSpan.classList.remove("class", "correct")
@@ -47,9 +54,14 @@ paragraphInputElement.addEventListener("input", () => {
             letterSpan.classList.remove("class", "correct")
             correct = false
         }
+    })
+    // console.clear()
+    // console.log(currentSpan.offsetTop);
+    // console.log(previousSpan.offsetTop);
 
-
-    } )
+    if (previousSpan != null && currentSpan.offsetTop > previousSpan.offsetTop) {
+        paragraphDisplayElement.scrollTop += 48
+    }
 
     if (correct) {
         resetTimer()
@@ -91,13 +103,14 @@ function getRandomParagraph(wordCount) {
 }
 
 function renderNewParagraph() {
+    paragraphDisplayElement.scrollTop = 0
     let quote = getRandomParagraph(wordCount)
     paragraphDisplayElement.innerHTML = ``
-    quote.split("").forEach( letter => {
+    quote.split("").forEach(letter => {
         let letterSpan = document.createElement("span")
         letterSpan.innerText = letter
         paragraphDisplayElement.appendChild(letterSpan)
-    } )
+    })
     paragraphInputElement.value = ``
     startTimer()
 
