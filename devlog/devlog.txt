@@ -47,3 +47,12 @@ Everything was running and showing in the console only, so I moved it to the act
 1. Hi, everyone. Today was great. I got a lot of the project done in a few days, but I just forgot to push it, so here we go.
 2. I wanted to add multiple word system. So, I got an AI to create me a 100 word array of random, easy english words and put it in a json file. I messed around with fetch and async await for a day or two, but I just couldn't get the hang of how to get the data outside the fetch function. So, I just decided to make it into a normal variable called "wordPool". It worked out great. I removed all that fetch and async stuff. The code looks cleaner than ever.
 3. Now, my next goal is either seeing both the history of the words you've written, or see the words coming in after the current one. Or, I could do like a reaction speed type of game. Or, I could do the main screen first. Anyways, It's 10:43 PM. Gotta sleep IG, after I push this.  
+
+1. 26. 26 - EasyType Version 0.4
+
+1. Hi, I implemented some things:
+1) Timer system
+2) Word Count system
+3) Reset button
+2. There are still some things I'd love to add right now.
+1) Auto-scroll (so I can get rid of a known bug)

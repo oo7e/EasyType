@@ -12,11 +12,20 @@ let wordPool = [
     "even", "new", "want", "because", "any", "these", "give", "day", "most", "us"
 ]
 
+// Timer Variables
+let seconds = 0
+let timer = null
+
 // DOM Elements
 let paragraphDisplayElement = document.getElementById("paragraphDisplay")
 let paragraphInputElement = document.getElementById("paragraphInput")
+let wordCountInput = document.getElementById("wordCountInput")
+let wordCount = localStorage.getItem("wordCount")
+wordCountInput.value = wordCount
+let resetButton = document.getElementById("resetButton")
+let timerElement = document.getElementById("timerElement")
 
-// Event Listener
+// Input Event Listener
 paragraphInputElement.addEventListener("input", () => {
     let arrayParagraph = paragraphDisplayElement.querySelectorAll("span")
     let arrayValue = paragraphInputElement.value.split("")
@@ -42,8 +51,23 @@ paragraphInputElement.addEventListener("input", () => {
 
     } )
 
-    if (correct) renderNewParagraph()
+    if (correct) {
+        resetTimer()
+        renderNewParagraph()
+    }
 
+})
+
+// Reset Event Listener
+resetButton.addEventListener("click", e => {
+    resetTimer()
+    renderNewParagraph()
+})
+
+// Change Word Count Event Listener
+wordCountInput.addEventListener("input", e => {
+    localStorage.setItem("wordCount", e.target.value)
+    wordCount = e.target.value
 })
 
 // Functions
@@ -55,7 +79,7 @@ function pickRandomWord(arr) {
 
 function getRandomParagraph(wordCount) {
     let data = ""
-    for (let i = 0; i <= wordCount; i++) {
+    for (let i = 0; i < wordCount; i++) {
         if (!data) {
             data += pickRandomWord(wordPool)
         }
@@ -67,7 +91,7 @@ function getRandomParagraph(wordCount) {
 }
 
 function renderNewParagraph() {
-    let quote = getRandomParagraph(30)
+    let quote = getRandomParagraph(wordCount)
     paragraphDisplayElement.innerHTML = ``
     quote.split("").forEach( letter => {
         let letterSpan = document.createElement("span")
@@ -75,5 +99,25 @@ function renderNewParagraph() {
         paragraphDisplayElement.appendChild(letterSpan)
     } )
     paragraphInputElement.value = ``
+    startTimer()
 
 } renderNewParagraph()
+
+function startTimer() {
+    if (timer !== null) return
+    timer = setInterval(() => {
+        seconds++
+        timerElement.textContent = `${seconds}`
+    }, 1000)
+}
+
+function stopTimer() {
+    clearInterval(timer)
+    timer = null
+}
+
+function resetTimer() {
+    stopTimer()
+    seconds = 0
+    timerElement.textContent = `${seconds}`
+}
